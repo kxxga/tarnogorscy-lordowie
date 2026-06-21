@@ -1,0 +1,114 @@
+---
+import Star from "@tabler/icons/outline/star.svg";
+import type { HTMLAttributes } from "astro/types";
+import { tv } from "tailwind-variants";
+import { Avatar, AvatarImage } from "@/components/starwind/avatar";
+import { Separator } from "@/components/starwind/separator";
+import { Card, CardContent } from "@/components/starwind/card";
+
+export interface FeatureCard {
+  icon: any;
+  title: string;
+  description: string;
+}
+
+interface Props extends HTMLAttributes<"section"> {
+  /** Section heading label */
+  heading?: string;
+  /** Section subheading */
+  subheading?: string;
+  /** Array of feature cards */
+  features?: FeatureCard[];
+}
+
+const feature4Styles = tv({
+  base: "@container mx-auto w-full max-w-7xl px-4 absolute z-10 my-[-60px] pb-24 left-1/2 -translate-x-1/2",
+});
+
+const {
+  heading = "Features",
+  subheading = "Everything you need in one platform",
+  features = [
+    {
+      title: "Bogdan",
+      description:
+        "Bardzo miła atmosfera, najlepszy salon w Tarnowskich Górach, polecam!",
+    },
+    {
+      title: "Sławomir",
+      description:
+        "Od samego wejścia przemiła obsługa. Przestrzeń i porządek sugerują, że wszystko jest tu należycie przemyślane. Bardzo miła obsługa.",
+    },
+    {
+      title: "Elżbieta",
+      description:
+        "Miła, profesjonalna obsługa i super atmosfera, syn jest stałym klientem i bardzo sobie chwali.",
+    },
+    {
+      title: "Jakub",
+      description:
+        "Miłe i profesjonalne podejście do klienta. Jestem zadowolony z usług, bardzo polecam.",
+    },
+  ],
+  class: className,
+  ...rest
+} = Astro.props;
+---
+
+<section class={feature4Styles({ class: className })} {...rest}>
+  <div class="grid gap-8 @md:grid-cols-2 @3xl:grid-cols-4">
+    {
+      features.map((feature) => (
+        <Card class="bg-muted hover:border-primary-accent transition-colors hidden @md:block first:block">
+          <CardContent>
+           
+            <div class="flex items-center gap-2 mb-2">
+              <Avatar>
+                <AvatarImage src="/images/avatar.svg" alt="Zdjęcie profilowe" />
+              </Avatar>
+              <h3 class="font-heading text-lg font-semibold">
+                {feature.title}
+              </h3>
+            </div>
+            
+            <div class="mb-2 inline-flex">
+              <Star
+                class="text-primary-accent mr-[1px] text-yellow-400 size-4"
+                fill="currentColor"
+                aria-hidden="true"
+              />
+              <Star
+                class="text-primary-accent mr-[1px] text-yellow-400 size-4"
+                fill="currentColor"
+                aria-hidden="true"
+              />
+              <Star
+                class="text-primary-accent mr-[1px] text-yellow-400 size-4"
+                fill="currentColor"
+                aria-hidden="true"
+              />
+              <Star
+                class="text-primary-accent mr-[1px] text-yellow-400 size-4"
+                fill="currentColor"
+                aria-hidden="true"
+              />
+              <Star
+                class="text-primary-accent text-yellow-400 size-4"
+                fill="currentColor"
+                aria-hidden="true"
+              />
+            </div>
+            
+            <p class="text-muted-foreground text-sm">{feature.description}</p>
+          </CardContent>
+        </Card>
+      ))
+    }
+  </div>
+  
+  <Separator class="my-6 w-full" />
+  
+  <p class="text-center text-muted-foreground">
+    Dołącz do grona <span class="font-semibold">zadowolonych klientów</span>
+  </p>
+</section>

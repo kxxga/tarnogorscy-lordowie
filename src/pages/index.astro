@@ -1,0 +1,36 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Hero3 from "../components/starwind-pro/hero-03/Hero3.astro";
+import Services from "../components/blocks/services/Services.astro";
+import Contact02 from "@/components/starwind-pro/contact-02/Contact2.astro";
+import Feature4 from "@/components/starwind-pro/feature-04/Feature4.astro";
+import Locations from "@/components/blocks/locations/Locations.astro";
+import Portfolio from "@/components/blocks/portfolio/Portfolio.astro";
+---
+
+<Layout>
+  <Hero3
+    heading="Witaj w Tarnogórscy Lordowie Barber Shop & Academy!"
+    description="Łączy nas pasja tradycyjnego rzemiosła męskiego oraz wieloletnie doświadczenie w branży fryzjerstwa."
+    primaryButtonText="Umów wizytę"
+    primaryButtonHref="/booksy"
+    secondaryButtonText="Nasze lokalizacje"
+    secondaryButtonHref="/#nasze-lokalizacje"
+    image={{
+      src: "/images/rynek/9.webp",
+      alt: "Zdjęcie wnętrza salonu fryzjerskiego Tarnogórscy Lordowie",
+    }}
+  />
+  <Feature4 />
+  <Services
+    heading="Nasze Usługi"
+    description="Sprawdź nasz aktualny cennik usług"
+  />
+  <Portfolio />
+  <Contact02
+    badge="Kontakt"
+    heading="Skontaktuj się z nami"
+    description="Masz pytania? Napisz do nas!"
+  />
+  <Locations />
+</Layout>

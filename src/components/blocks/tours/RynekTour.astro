@@ -1,0 +1,102 @@
+---
+import "pannellum/src/css/pannellum.css";
+---
+
+<div id="panorama"></div>
+
+<script
+  is:inline
+  src="https://cdn.jsdelivr.net/npm/pannellum@2.5.6/build/pannellum.js"
+></script>
+
+<script>
+  const globalWindow = window as any;
+
+  if (globalWindow.pannellum) {
+    const isMobile = window.innerWidth < 768;
+  
+  const dynamicFov = isMobile ? 70 : 110;
+
+    globalWindow.pannellum.viewer("panorama", {
+      default: {
+        firstScene: "inside",
+        autoLoad: true,
+        autoRotate: -2,
+        compass: false,
+        mouseZoom: false,
+        doubleClickZoom: false,
+      },
+
+      scenes: {
+        inside: {
+          hfov: dynamicFov,
+          pitch: -3,
+          yaw: 0,
+          type: "equirectangular",
+          panorama: "/tours/rynek/inside.jpg",
+          hotSpots: [
+            {
+              pitch: -2.1,
+              yaw: 174.3,
+              type: "scene",
+              text: "Wyjdź z salonu",
+              sceneId: "outside",
+            },
+          ],
+        },
+
+        outside: {
+          hfov: dynamicFov,
+          yaw: 110,
+          type: "equirectangular",
+          panorama: "/tours/rynek/outside.jpg",
+          hotSpots: [
+            {
+              pitch: 5,
+              yaw: 110,
+              type: "scene",
+              text: "Wejdź do salonu",
+              sceneId: "inside",
+              targetYaw: -23,
+              targetPitch: 2,
+            },
+          ],
+        },
+      },
+    });
+  }
+</script>
+
+<style>
+  #panorama {
+    margin: auto;
+    width: 75%;
+    height: 700px;
+  }
+
+   @media (max-width: 768px) {
+    #panorama {
+      width: 90% !important; 
+      height: 600px !important;
+    }
+  }
+
+  :global(.pnlm-load-box p) {
+    display: none !important;
+  }
+
+  :global(.pnlm-lsc) {
+    display: none !important;
+  }
+
+  :global(.pnlm-load-box::before) {
+    content: "Ładowanie..." !important;
+    color: #fff;
+    font-size: 20px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-family: sans-serif;
+  }
+</style>

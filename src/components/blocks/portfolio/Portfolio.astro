@@ -1,0 +1,72 @@
+---
+import {Image} from "@/components/starwind/image";
+import Separator from "@/components/starwind/separator";
+---
+
+<div class="bg-neutral-900">
+  <Separator class="mb-10" />
+  <div class="w-full  flex justify-center mb-10">
+  <span
+      class="bg-cyan-600/50 text-white inline-block rounded-full px-4 py-1.5 text-sm font-medium"
+    >
+     Portfolio</span>
+    </span>
+</div>
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-7xl mx-auto px-4">
+    <div class="overflow-hidden rounded-lg">
+        <Image
+          src="/images/portfolio/1.webp"
+          alt="Zdjęcie portfolio nr 1"
+          width={500}
+          height={500}
+          class="transition-transform duration-300 hover:scale-110"
+        />
+    </div>
+        <div class="overflow-hidden rounded-lg">
+     <Image
+      src="/images/portfolio/2.webp"
+      alt="Zdjęcie portfolio nr 2"
+      width={500}
+        height={500}
+      class="transition-transform duration-300 hover:scale-110"
+    />
+    </div>
+        <div class="overflow-hidden rounded-lg">
+     <Image
+      src="/images/portfolio/3.webp"
+      alt="Zdjęcie portfolio nr 3"
+      width={500}
+        height={500}
+      class="transition-transform duration-300 hover:scale-110"
+    />
+    </div>
+        <div class="overflow-hidden rounded-lg">
+     <Image
+      src="/images/portfolio/4.webp"
+      alt="Zdjęcie portfolio nr 4"
+      width={500}
+        height={500}
+      class="transition-transform duration-300 hover:scale-110"
+    />
+    </div>
+        <div class="overflow-hidden rounded-lg hidden md:block">
+     <Image
+      src="/images/portfolio/5.webp"
+      alt="Zdjęcie portfolio nr 5"
+      width={500}
+        height={500}
+      class="transition-transform duration-300 hover:scale-110"
+    />
+    </div>
+        <div class="overflow-hidden rounded-lg hidden md:block">
+     <Image
+      src="/images/portfolio/6.webp"
+      alt="Zdjęcie portfolio nr 6"
+      width={500}
+        height={500}
+      class="transition-transform duration-300 hover:scale-110"
+    />
+    </div>
+</div>
+<Separator class="mt-10" />
+</div>

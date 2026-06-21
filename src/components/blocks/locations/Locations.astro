@@ -1,0 +1,65 @@
+---
+import { Button } from "@/components/starwind/button";
+import { Badge } from "@/components/starwind/badge";
+import {
+  Card,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/starwind/card";
+import Separator from "@/components/starwind/separator";
+import MapPin from "@tabler/icons/filled/map-pin.svg";
+---
+
+<div id="nasze-lokalizacje" class="w-full flex justify-center mb-10">
+  <span
+      class="bg-cyan-600/50 text-white inline-block rounded-full px-4 py-1.5 text-sm font-medium"
+    >
+     Nasze lokalizacje</span>
+    </span>
+</div>
+<div class="flex px-4 flex-col items-center justify-center lg:flex-row max-w-3xl mx-auto gap-12">
+  
+    <Card class="relative mx-auto w-full max-w-sm">
+  <img
+    src="/images/rynek/6.jpg"
+    alt="Event cover"
+    class="aspect-video w-full object-cover"
+  />
+  <CardHeader>
+    <CardTitle>
+       ul. Rynek 11</CardTitle>
+    <CardDescription>
+     Tarnowskie Góry, 42-600 <br /> <a class="hover:underline" href="tel:+48737737123">+48 737 737 123</a> <Separator class="my-2 w-full" />Poniedziałek - Piątek: 08:00 - 20:00 <br /> Sobota: 08:00 - 13:00</CardDescription>
+  </CardHeader>
+  <CardFooter>
+<a class="w-full" href="https://maps.app.goo.gl/dq2Bsq34H4e5BVXQ7" target="_blank" rel="noopener noreferrer">
+        <Button class="w-full ">
+       <MapPin  /> Wyświetl w Google Maps</Button>
+</a>
+  </CardFooter>
+</Card>
+
+<Card class="relative mx-auto w-full max-w-sm">
+  <img
+    src="/images/osiedle/24.webp"
+    alt="Event cover"
+    class="aspect-video w-full object-cover"
+  />
+  <CardHeader>
+      <Badge class="absolute top-4 right-4 bg-cyan-600"  size="md"  variant="primary">Nowe otwarcie!</Badge>
+    <CardTitle>
+       ul. Saperów 12c</CardTitle>
+    <CardDescription>
+     Tarnowskie Góry, 42-600 <br /> <a class="hover:underline" href="tel:+48501537001">+48 501 537 001</a> <Separator class="my-2 w-full" />Poniedziałek - Piątek: 08:00 - 20:00 <br /> Sobota: 08:00 - 13:00</CardDescription>
+  </CardHeader>
+  <CardFooter>
+<a class="w-full" href="https://maps.app.goo.gl/Y7SGEavwKL6iRWyR7" target="_blank" rel="noopener noreferrer">
+        <Button class="w-full  ">
+        <MapPin  />
+        Wyświetl w Google Maps</Button>
+</a>
+  </CardFooter>
+</Card>
+</div>

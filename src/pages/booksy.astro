@@ -1,0 +1,61 @@
+---
+import "../styles/starwind.css";
+import "../styles/booksy.css";
+import IconBrandFacebook from "@tabler/icons/filled/brand-facebook.svg";
+import IconBrandInstagram from "@tabler/icons/filled/brand-instagram.svg";
+import ArrowRight from "@tabler/icons/outline/arrow-right.svg";
+import Footer1 from "../components/starwind-pro/footer-01/Footer1.astro";
+---
+
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/logo.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Tarnogórscy Lordowie</title>
+    <script defer src="https://stats.tarnogorscylordowie.pl/script.js" data-website-id="671e8adf-171a-4ef6-a0bf-f9f3ac696c8a"></script>
+    
+  </head>
+  <body class="font-sans">
+    <header>
+      <a href="https://tarnogorscylordowie.pl">
+        <img class="mt-4" src="/logo.svg" alt="Tarnogórscy Lordowie Logo" />
+      </a>
+    </header>
+    <div class="mb-6">
+      <h1 class="mt-6 text-xl font-medium  tracking-[3px] mb-6"  >Wybierz salon</h1>
+      <a class="button" href="https://tarnogorscylordowie.booksy.net/" rel="noopener noreferrer">
+        <div>
+          <span>Salon 1</span>
+          <p>Rynek 11</p>
+          <span>Centrum · Tarnowskie Góry</span>
+        </div>
+        <ArrowRight class="ArrowRight" />
+      </a>
+      <a class="button" href="https://tarnogorscylordowieprzyjazn.booksy.net/" rel="noopener noreferrer">
+        <div>
+          <span>Salon 1</span>
+          <p>Rynek 11</p>
+          <span>Centrum · Tarnowskie Góry</span>
+        </div>
+        <ArrowRight class="ArrowRight" />
+      </a>
+    </div>
+    <Footer1 companyName="Tarnogórscy Lordowie"
+      socialLinks={[
+        {
+          name: "Facebook",
+          href: "https://facebook.tarnogorscylordowie.pl",
+          icon: IconBrandFacebook,
+        },
+        {
+          name: "Instagram",
+          href: "https://instagram.tarnogorscylordowie.pl",
+          icon: IconBrandInstagram,
+        },
+      ]} />
+  </body>
+</html>

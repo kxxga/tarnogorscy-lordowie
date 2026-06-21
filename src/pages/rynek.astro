@@ -1,0 +1,155 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Team1, {
+  type TeamMember,
+} from "../components/starwind-pro/team-01/Team1.astro";
+import Tour from "../components/blocks/tours/RynekTour.astro";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+} from "@/components/starwind/carousel";
+import Image from "@/components/starwind/image";
+import Separator from "@/components/starwind/separator";
+import Locations from "@/components/blocks/locations/Locations.astro";
+
+
+const members: TeamMember[] = [
+  {
+    name: "Alicja",
+    bio: "Alicja to barberka z 4-letnim stażem, specjalizująca się w klasycznych męskich strzyżeniach i niskich cieniowaniach. Jej pasja do malarstwa przekłada się na wyjątkową dokładność, kreatywność oraz dbałość o każdy detal. Zapewnia profesjonalne strzyżenie w spokojnej, swobodnej atmosferze i przy pełnym skupieniu.",
+    image: "/images/rynek/alicja.webp",
+   
+  },
+  {
+    name: "Dominik",
+    bio: "Dominik posiada bogate doświadczenie w wykonywaniu różnorodnych stylizacji, zarówno klasycznych, jak i nowoczesnych. Jego umiejętności strzyżenia włosów są na wysokim poziomie, co pozwala mu osiągnąć doskonałe efekty pracy. Dominik cechuje się również niezwykłą precyzją i dokładnością. Zawsze stawia na jakość usług i zadowolenia klienta!",
+    image: "/images/rynek/dominik.webp",
+   
+  },
+  {
+    name: "Justin",
+    bio: "Justin posiada wyjątkowe umiejętności, kreatywność i indywidualne podejście do każdego klienta sprawiają, że wizyta u niego to czysta przyjemność. Zawsze stawia na perfekcję, a jego pasja do fryzjerstwa jest widoczna w każdym cięciu. Jeśli szukasz kogoś, kto nie tylko świetnie przytnie, ale też wprowadzi miłą atmosferę-Justin to idealny wybór! 👏",
+    image: "/images/rynek/justin.webp",
+  
+  },
+  {
+    name: "Kamil",
+    bio: "Kamil to barber, dla którego męskie fryzjerstwo to absolutna pasja rozwijana od dwóch lat. Gwarantuje on precyzyjne cięcie, świetną energię, dużo dobrego humoru oraz luźną atmosferę na fotelu. Z racji ograniczonej czasowo promocji, jego usługi można obecnie zarezerwować w specjalnych, niższych cenach.",
+    image: "/images/rynek/kamil.webp",
+    
+  },
+  {
+    name: "Karolina",
+    bio: "Karolina to barberka z 5-letnim doświadczeniem, która stawia na maksymalną dokładność i czystą, klasyczną formę. Jest otwarta, komunikatywna i potrafi zapewnić zarówno świetną rozmowę, jak i pełen profesjonalizm w ciszy. Jej unikalny vibe, nastawienie na stały rozwój oraz perfekcyjne cięcia gwarantują doskonałą atmosferę.",
+    image: "/images/rynek/karolina.webp",
+   
+  },
+  {
+    name: "Żaku",
+    bio: "Żaku rzucił wszystko i wyjechał na miesięczne szkolenie do Warszawy następnie zgłosił się do nas i przeszedł intensywne szkolenie w naszej akademii. Dobrze czuje się w fryzurach side part i quiff oraz w stylizacji fryzur. Można śmiało wpadać do niego na fotel ponieważ wie co robi :) Kinomaniak i wielki fan sportu najbardziej piłki nożnej o której może rozmawiać cały dzień.",
+    image: "/images/rynek/zaku.webp",
+   
+  },
+];
+---
+
+<Layout>
+   
+  <Carousel id="rynek-carousel" autoInit={false} opts={{ align: "start", loop: true }} class="flex w-full h-[300px] md:h-[550px] md:max-h-[550px]">
+    <h1 class="absolute bottom-[-40px] left-1/2  text-center -translate-x-1/2 z-20 p-4 rounded-lg bg-cyan-700/90 text-xl lg:bottom-[-30px] lg:left-20 lg:translate-x-0 lg:text-3xl">
+  <span class="font-bold">ul. Rynek 11</span> Tarnowskie Góry
+</h1>
+    <CarouselContent class="h-full">
+     
+          <CarouselItem class="h-full flex items-center justify-center">
+            <Image
+              src={`/images/rynek/4.webp`}
+              alt={`Zdjęcie z karuzeli nr 1`}
+              width={1000}
+              height={1000} 
+              */
+              class="w-full h-full object-cover" 
+            />
+          </CarouselItem>
+           <CarouselItem class="h-full flex items-center justify-center">
+            <Image
+              src={`/images/rynek/6.webp`}
+              alt={`Zdjęcie z karuzeli nr 1`}
+              width={1000}
+              height={1000} 
+              */
+              class="w-full h-full object-cover" 
+            />
+          </CarouselItem>
+           <CarouselItem class="h-full flex items-center justify-center">
+            <Image
+              src={`/images/rynek/8.webp`}
+              alt={`Zdjęcie z karuzeli nr 1`}
+              width={1000}
+              height={1000} 
+              */
+              class="w-full h-full object-cover" 
+            />
+          </CarouselItem>
+           <CarouselItem class="h-full flex items-center justify-center">
+            <Image
+              src={`/images/rynek/12.webp`}
+              alt={`Zdjęcie z karuzeli nr 1`}
+              width={1000}
+              height={1000} 
+              */
+              class="w-full h-full object-cover" 
+            />
+          </CarouselItem>
+    </CarouselContent>
+  </Carousel>
+  <Separator  />
+  <Team1
+    heading="Poznaj nas"
+    description="Poznaj naszą ekipę"
+    members={members}
+  />
+  
+  <div class="bg-neutral-900">
+    
+    <Separator class="mb-10" />
+    <div class="w-full flex justify-center">
+  <span
+      class="mb-10 bg-cyan-600/50 text-white inline-block rounded-full px-4 py-1.5 text-sm font-medium"
+    >
+      Wirtualny spacer salonu
+    </span>
+</div>
+    <Tour />
+    <Separator class="mt-10" />
+  </div>
+  <div class="mt-20">
+    <Locations  />
+  </div>
+</Layout
+>
+
+<script>
+  import EmblaCarousel from 'embla-carousel';
+  import Autoplay from 'embla-carousel-autoplay';
+
+  const setupCarousel = () => {
+    const carouselRoot = document.getElementById('rynek-carousel');
+    const viewportNode = carouselRoot?.querySelector('.overflow-hidden') as HTMLElement;
+
+    if (viewportNode) {
+      const autoplay = Autoplay({ 
+        delay: 3000, 
+        stopOnInteraction: false,
+        stopOnMouseEnter: true
+      });
+
+      EmblaCarousel(viewportNode, { align: 'start', loop: true }, [autoplay]);
+    }
+  };
+
+  document.addEventListener('DOMContentLoaded', setupCarousel);
+  
+  document.addEventListener('astro:page-load', setupCarousel);
+</script>

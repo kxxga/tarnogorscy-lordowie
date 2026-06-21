@@ -1,0 +1,78 @@
+---
+import type { HTMLAttributes } from "astro/types";
+import { tv } from "tailwind-variants";
+
+import { Button } from "@/components/starwind/button";
+
+interface Props extends HTMLAttributes<"section"> {
+  /** Main heading text */
+  heading?: string;
+  /** Description text */
+  description?: string;
+  /** Primary button text */
+  primaryButtonText?: string;
+  /** Primary button href */
+  primaryButtonHref?: string;
+  /** Secondary button text */
+  secondaryButtonText?: string;
+  /** Secondary button href */
+  secondaryButtonHref?: string;
+  /** Image configuration */
+  image?: {
+    src: string;
+    alt: string;
+  };
+}
+
+const hero3Styles = tv({
+  base: "@container w-full",
+});
+
+const {
+  heading = "Transform Your Ideas Into Reality",
+  description = "Powerful tools and components designed to help you build exceptional web experiences. Start creating today with our intuitive design system.",
+  primaryButtonText = "Get Started Free",
+  primaryButtonHref = "#",
+  secondaryButtonText,
+  secondaryButtonHref = "#",
+  image = {
+    src: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&auto=format&fit=crop&q=80",
+    alt: "Analytics dashboard preview",
+  },
+  class: className,
+  ...rest
+} = Astro.props;
+---
+
+<section class={hero3Styles({ class: className })} {...rest}>
+  <div class="relative min-h-[750px] flex items-center p-8 @4xl:p-16 overflow-hidden border-b">
+        <img src={image.src} alt={image.alt} class="absolute inset-0 size-full object-cover z-0" />
+      <div class="absolute inset-0 bg-black/60 z-10"></div>
+
+    <div class="relative flex flex-col z-20 xl:ml-42 ">
+      <h1
+        class="font-heading text-4xl  font-semibold tracking-tight @4xl:text-5xl"
+      >
+        {heading}
+      </h1>
+      <p class="text-neutral-300 mt-6 text-lg">
+        {description}
+      </p>
+      <div class="mt-8 flex flex-col flex-wrap gap-4 @md:flex-row">
+        <Button
+          variant="primary"
+          class="bg-cyan-600 hover:bg-cyan-700"
+          href={primaryButtonHref}>{primaryButtonText}</Button
+        >
+        {
+          secondaryButtonText && (
+            <Button variant="outline" class="bg-white hover:bg-gray-300 text-black hover:text-gray-800"  href={secondaryButtonHref}>
+              {secondaryButtonText}
+            </Button>
+          )
+        }
+      </div>
+    </div>
+   
+  </div>
+</section>

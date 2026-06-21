@@ -1,0 +1,293 @@
+---
+import IconArrowRight from "@tabler/icons/outline/arrow-right.svg";
+import type { HTMLAttributes } from "astro/types";
+import { tv } from "tailwind-variants";
+
+import {
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/starwind/accordion";
+import { Button } from "@/components/starwind/button";
+
+/** Service item configuration */
+export interface Service {
+  /** Service title */
+  title: string;
+  /** Service description */
+  description: string;
+  /** Optional link to service page */
+  href?: string;
+}
+
+interface Props extends HTMLAttributes<"section"> {
+  /** Badge/eyebrow text */
+  badge?: string;
+  /** Section heading */
+  heading?: string;
+  /** Section description */
+  description?: string;
+}
+
+const sectionStyles = tv({
+  base: "@container mx-auto w-full max-w-7xl px-4 pt-80 pb-24",
+});
+
+const {
+  badge = "Services",
+  heading = "How We Can Help",
+  description = "We provide a range of professional services to meet your needs.",
+  class: className,
+  ...rest
+} = Astro.props;
+---
+
+<section id="uslugi" class={sectionStyles({ class: className })} {...rest}>
+  <div class="max-w-2xl @xl:mx-auto text-center">
+    <span
+      class="bg-cyan-600/50 text-white inline-block rounded-full px-4 py-1.5 text-sm font-medium"
+    >
+     Usługi
+    </span>
+    <h2
+      class="font-heading mt-4 text-3xl font-semibold tracking-tight @xl:text-4xl @3xl:text-5xl"
+    >
+      {heading}
+    </h2>
+    <p class="text-muted-foreground mt-4 text-pretty @xl:text-lg">
+      {description}
+    </p>
+  </div>
+
+  <div class="mx-auto mt-16 max-w-3xl">
+    <ul class="divide-border divide-y">
+      <!-- defaultValue="item-2" -->
+      <Accordion type="multiple" >
+        <AccordionItem value="item-1">
+          <AccordionTrigger>
+            <div class="flex justify-between items-center w-full">
+              <div class="flex items-center gap-3">
+                <span class="text-muted-foreground font-mono text-sm">
+                  01
+                </span><p class="uppercase">Usługi Barberskie</p>
+              </div>
+              <span class="text-muted-foreground text-sm"> 10 usług </span>
+            </div>
+          </AccordionTrigger>
+          <AccordionContent >
+        <div class="flex flex-col gap-3">
+              <div class="flex justify-between items-center w-full">
+              <p>Strzyżenie klasyczne (HAIRCUT)</p>
+              <div class="flex items-center gap-4">
+                <div class="flex flex-col items-end">
+                  <span class="w-[80px] text-right">70,00 zł</span>
+                  <span class="text-muted-foreground text-sm"> 30min </span>
+                </div>
+                <a href="/booksy">
+                  <Button class="bg-cyan-600 hover:bg-cyan-700 text-white" size="sm"> Umów</Button>
+                </a>
+              </div>
+            </div>
+            <div class="flex justify-between items-center w-full">
+              <p>Strzyżenie klasyczne + broda (COMBO)</p>
+              <div class="flex items-center gap-4">
+                <div class="flex flex-col items-end">
+                  <span class="w-[80px] text-right">120,00 zł</span>
+                  <span class="text-muted-foreground text-sm"> 1g </span>
+                </div>
+               <a href="/booksy">
+                  <Button class="bg-cyan-600 hover:bg-cyan-700 text-white" size="sm"> Umów</Button>
+                </a>
+              </div>
+            </div>
+            <div class="flex justify-between items-center w-full">
+              <p>Broda (Beard trim)</p>
+              <div class="flex items-center gap-4">
+                <div class="flex flex-col items-end">
+                  <span class="w-[80px] text-right">60,00 zł</span>
+                  <span class="text-muted-foreground text-sm"> 30min </span>
+                </div>
+              <a href="/booksy">
+                  <Button class="bg-cyan-600 hover:bg-cyan-700 text-white" size="sm"> Umów</Button>
+                </a>
+              </div>
+            </div>
+            <div class="flex justify-between items-center w-full">
+              <p>Strzyżenie młodego mężczyzny do 12 lat</p>
+              <div class="flex items-center gap-4">
+                <div class="flex flex-col items-end">
+                  <span class="w-[80px] text-right">50,00 zł</span>
+                  <span class="text-muted-foreground text-sm"> 30min </span>
+                </div>
+                <a href="/booksy">
+                  <Button class="bg-cyan-600 hover:bg-cyan-700 text-white" size="sm"> Umów</Button>
+                </a>
+              </div>
+            </div>
+            <div class="flex justify-between items-center w-full">
+              <p>Włosy średnie (np. mullet lub całość nożyczkami)</p>
+              <div class="flex items-center gap-4">
+                <div class="flex flex-col items-end">
+                  <span class="w-[80px] text-right">120,00 zł</span>
+                  <span class="text-muted-foreground text-sm"> 1g </span>
+                </div>
+                <a href="/booksy">
+                  <Button class="bg-cyan-600 hover:bg-cyan-700 text-white" size="sm"> Umów</Button>
+                </a>
+              </div>
+            </div>
+            <div class="flex justify-between items-center w-full">
+              <p>Buzzcut</p>
+              <div class="flex items-center gap-4">
+                <div class="flex flex-col items-end">
+                  <span class="w-[80px] text-right">50,00 zł</span>
+                  <span class="text-muted-foreground text-sm"> 30min </span>
+                </div>
+                <a href="/booksy">
+                  <Button class="bg-cyan-600 hover:bg-cyan-700 text-white" size="sm"> Umów</Button>
+                </a>
+              </div>
+            </div>
+            <div class="flex justify-between items-center w-full">
+              <p>Łysol</p>
+              <div class="flex items-center gap-4">
+                <div class="flex flex-col items-end">
+                  <span class="w-[80px] text-right">30,00 zł+</span>
+                  <span class="text-muted-foreground text-sm"> 30min </span>
+                </div>
+             <a href="/booksy">
+                  <Button class="bg-cyan-600 hover:bg-cyan-700 text-white" size="sm"> Umów</Button>
+                </a>
+              </div>
+            </div>
+            <div class="flex justify-between items-center w-full">
+              <p>Strzyżenie maszynką (clipper haircut)</p>
+              <div class="flex items-center gap-4">
+                <div class="flex flex-col items-end">
+                  <span class="w-[80px] text-right">20,00 zł</span>
+                  <span class="text-muted-foreground text-sm"> 30min </span>
+                </div>
+              <a href="/booksy">
+                  <Button class="bg-cyan-600 hover:bg-cyan-700 text-white" size="sm"> Umów</Button>
+                </a>
+              </div>
+            </div>
+            <div class="flex justify-between items-center w-full">
+              <p>Wzorki</p>
+              <div class="flex items-center gap-4">
+                <div class="flex flex-col items-end">
+                  <span class="w-[80px] text-right">Zmienna</span>
+                  <span class="text-muted-foreground text-sm"> 30min </span>
+                </div>
+                <a href="/booksy">
+                  <Button class="bg-cyan-600 hover:bg-cyan-700 text-white" size="sm"> Umów</Button>
+                </a>
+              </div>
+            </div>
+            <div class="flex justify-between items-center w-full">
+              <p>Modelowanie włosów</p>
+              <div class="flex items-center gap-4">
+                <div class="flex flex-col items-end">
+                  <span class="w-[80px] text-right">25,00 zł</span>
+                  <span class="text-muted-foreground text-sm"> 15min </span>
+                </div>
+                <a href="/booksy">
+                  <Button class="bg-cyan-600 hover:bg-cyan-700 text-white" size="sm"> Umów</Button>
+                </a>
+              </div>
+            </div>
+        </div>
+            
+          </AccordionContent>
+        </AccordionItem>
+          <AccordionItem value="item-2">
+          <AccordionTrigger>
+            <div class="flex justify-between items-center w-full">
+              <div class="flex items-center gap-3">
+                <span class="text-muted-foreground font-mono text-sm">
+                  02
+                </span><p class="uppercase">Szkolenie promocja strzyżenie za 1 zł!</p>
+              </div>
+              <span class="text-muted-foreground text-sm w-[80px] text-right"> 2 usługi</span>
+            </div>
+          </AccordionTrigger>
+          <AccordionContent >
+        <div class="flex flex-col gap-3">
+              <div class="flex justify-between items-center w-full">
+              <p>Strzyżenie klasyczne + broda (COMBO)</p>
+              <div class="flex items-center gap-4">
+                <div class="flex flex-col items-end">
+                  <span class="w-[80px] text-right">1,00 zł</span>
+                  <span class="text-muted-foreground text-sm"> 1g </span>
+                </div>
+                <a href="/booksy">
+                  <Button class="bg-cyan-600 hover:bg-cyan-700 text-white" size="sm"> Umów</Button>
+                </a>
+              </div>
+            </div>
+            <div class="flex justify-between items-center w-full">
+              <p>Strzyżenie brody</p>
+              <div class="flex items-center gap-4">
+                <div class="flex flex-col items-end">
+                  <span class="w-[80px] text-right">1,00 zł</span>
+                  <span class="text-muted-foreground text-sm"> 1g </span>
+                </div>
+              <a href="/booksy">
+                  <Button class="bg-cyan-600 hover:bg-cyan-700 text-white" size="sm"> Umów</Button>
+                </a>
+              </div>
+            </div>
+          
+            
+          </AccordionContent>
+        </AccordionItem>
+
+
+
+           </AccordionItem>
+          <AccordionItem value="item-3">
+          <AccordionTrigger>
+            <div class="flex justify-between items-center w-full">
+              <div class="flex items-center gap-3">
+                <span class="text-muted-foreground font-mono text-sm">
+                  03
+                </span><p class="uppercase">Cover</p>
+              </div>
+              <span class="text-muted-foreground text-sm"> 2 usługi</span>
+            </div>
+          </AccordionTrigger>
+          <AccordionContent >
+        <div class="flex flex-col gap-3">
+              <div class="flex justify-between items-center w-full">
+              <p>Cover (odsiwianie włosów)</p>
+              <div class="flex items-center gap-4">
+                <div class="flex flex-col items-end">
+                  <span class="w-[80px] text-right">60,00 zł</span>
+                  <span class="text-muted-foreground text-sm"> 30min </span>
+                </div>
+               <a href="/booksy">
+                  <Button class="bg-cyan-600 hover:bg-cyan-700 text-white" size="sm"> Umów</Button>
+                </a>
+              </div>
+            </div>
+            <div class="flex justify-between items-center w-full">
+              <p>Cover (odsiwianie brody)</p>
+              <div class="flex items-center gap-4">
+                <div class="flex flex-col items-end">
+                  <span class="w-[80px] text-right">60,00 zł</span>
+                  <span class="text-muted-foreground text-sm"> 30min </span>
+                </div>
+               <a href="/booksy">
+                  <Button class="bg-cyan-600 hover:bg-cyan-700 text-white" size="sm"> Umów</Button>
+                </a>
+              </div>
+            </div>
+          
+            
+          </AccordionContent>
+        </AccordionItem>
+      </Accordion>
+    </ul>
+  </div>
+</section>

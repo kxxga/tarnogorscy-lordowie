@@ -1,0 +1,92 @@
+---
+import Navbar1 from "@/components/starwind-pro/navbar-01/Navbar1.astro";
+import Footer1 from "@/components/starwind-pro/footer-01/Footer1.astro";
+
+import IconBrandFacebook from "@tabler/icons/filled/brand-facebook.svg";
+import IconBrandInstagram from "@tabler/icons/filled/brand-instagram.svg";
+
+import "@/styles/starwind.css";
+
+const title = "Tarnogórscy Lordowie Barber Shop & Academy";
+const description = "Łączy nas pasja tradycyjnego rzemiosła męskiego oraz wieloletnie doświadczenie w branży fryzjerstwa.";
+const image = "/images/osiedle/39.webp"; 
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://tarnogorscylordowie.pl');
+const imageURL = new URL(image, Astro.site || 'https://tarnogorscylordowie.pl');
+---
+
+<!doctype html>
+<html lang="pl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" href="/logo.svg" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Tarnogórscy Lordowie</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
+
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content={canonicalURL} />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:image" content={imageURL} />
+
+		<meta property="twitter:card" content="summary_large_image" />
+		<meta property="twitter:url" content={canonicalURL} />
+		<meta property="twitter:title" content={title} />
+		<meta property="twitter:description" content={description} />
+		<meta property="twitter:image" content={imageURL} />
+
+    <script defer src="https://stats.tarnogorscylordowie.pl/script.js" data-website-id="671e8adf-171a-4ef6-a0bf-f9f3ac696c8a"></script>
+  </head>
+  <body>
+    <Navbar1
+      siteName="Tarnogórscy Lordowie"
+      links={[
+        { label: "Strona główna", href: "/" },
+
+        { label: "Rynek", href: "/rynek" },
+        { label: "Osiedle Przyjaźń", href: "/osiedle-przyjazn" },
+        { label: "Kontakt", href: "/#kontakt" },
+        { label: "Usługi", href: "/#uslugi" },
+      ]}
+      ctaText="Umów wizytę"
+      ctaHref="/booksy"
+    >
+      <img
+        src="/logo.svg"
+        alt="Tarnogórscy Lordowie Logo"
+        slot="logo"
+        height="60"
+        width="60"
+      />
+    </Navbar1>
+    <slot />
+    <Footer1
+      companyName="Tarnogórscy Lordowie"
+      socialLinks={[
+        {
+          name: "Facebook",
+          href: "https://facebook.tarnogorscylordowie.pl",
+          icon: IconBrandFacebook,
+        },
+        {
+          name: "Instagram",
+          href: "https://instagram.tarnogorscylordowie.pl",
+          icon: IconBrandInstagram,
+        },
+      ]}
+    />
+  </body>
+</html>
+
+<style>
+  html,
+  body {
+    margin: 0;
+    width: 100%;
+    height: 100%;
+  }
+</style>

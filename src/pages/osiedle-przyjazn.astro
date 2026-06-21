@@ -1,0 +1,156 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Team1, {
+  type TeamMember,
+} from "../components/starwind-pro/team-01/Team1.astro";
+import Tour from "../components/blocks/tours/OsiedleTour.astro";
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+} from "@/components/starwind/carousel";
+import Image from "@/components/starwind/image";
+import Separator from "@/components/starwind/separator";
+import Locations from "@/components/blocks/locations/Locations.astro";
+import { Video } from "@/components/starwind/video";
+
+const members: TeamMember[] = [
+  {
+    name: "Julia",
+    bio: "Julia to profesjonalistka, która rzemiosło ma opanowane do perfekcji. Jej warsztat opiera się na solidnych fundamentach – ukończonych z wyróżnieniem praktykach oraz egzaminie czeladniczym zdanym na 5+. Dla Julii fryzjerstwo męskie to pasja, którą przekłada na precyzyjne cięcia i dopracowane detale. Niezależnie od tego, czy stawiasz na nowoczesność, czy ponadczasowy styl, u Julii jesteś w dobrych rękach.",
+    image: "/images/osiedle/julia.webp",
+  },
+  {
+    name: "Kasia",
+    bio: "Poznaj Kasię, dla której fryzjerstwo męskie to sztuka detalu. Kasia specjalizuje się w klasycznych i krótkich formach, w których czuje się najlepiej, dążąc do technicznej perfekcji przy każdym kliencie. Jeśli cenisz sobie rzemieślniczą dokładność, czyste linie i fryzurę idealnie dopasowaną do Twojego stylu, Kasia jest właściwą osobą na właściwym miejscu.",
+    image: "/images/osiedle/kasia.webp",
+    
+  },
+  {
+    name: "Marta",
+    bio: "Marta uwielbia tworzyć fryzury efektowne i dopasowane do każdej osoby. Nie ogranicza się do jednego stylu, bo lubi wszystkie rodzaje strzyżeń - najważniejsze, żeby klient wyszedł zadowolony. Ma wesołe podejście, dużo się śmieje i dba o to, żeby wizyta była nie tylko profesjonalna, ale też w fajnej atmosferze. Zapraszamy, jeśli szukasz Barberki z dobrą energią i uśmiechem! :)",
+    image: "/images/osiedle/marta.webp",
+    
+  },
+  {
+    name: "Natalia",
+    bio: "Cherry to niezwykle pracowita i doświadczona barberka, która prowadzi również szkolenia dla początkujących fryzjerów. Jej największą pasją są szybkie nożyczki i perfekcyjne, niskie cieniowania, a wolny czas najchętniej spędza na siłowni. W pracy i w życiu kieruje się zasadą, że wszystko ostatecznie zawsze układa się pomyślnie.",
+    image: "/images/osiedle/natalia.webp",
+   
+  },
+  {
+    name: "Bogdan",
+    role: "Praktykant",
+    bio: "To nasz ambitny i zdyscyplinowany praktykant, który dzięki 11 latom treningów sztuk walki oraz pasji do kulturystyki cechuje się wytrwałością i konsekwencją. Jest otwarty na nowe wyzwania i chętny do pomocy. Dodatkowo biegle posługuje się językiem polskim, rosyjskim oraz ukraińskim.",
+    image: "/images/osiedle/bogdan.webp",
+    
+  },
+];
+---
+
+<Layout>
+  <Carousel id="rynek-carousel" autoInit={false} opts={{ align: "start", loop: true }} class="flex w-full h-[300px] md:h-[550px] md:max-h-[550px]">
+    <h1 class="text-center absolute bottom-[-40px] left-1/2 -translate-x-1/2 z-20 p-4 rounded-lg bg-cyan-700/90 text-xl lg:bottom-[-30px] lg:left-20 lg:translate-x-0 lg:text-3xl">
+  <span class="font-bold">ul. Saperów 12c</span> Tarnowskie Góry
+</h1>
+    <CarouselContent class="h-full">
+     
+          <CarouselItem class="h-full flex items-center justify-center">
+            <Image
+              src={`/images/osiedle/38.webp`}
+              alt={`Zdjęcie z karuzeli nr 1`}
+              width={1000}
+              height={1000} 
+              */
+              class="w-full h-full object-cover" 
+            />
+          </CarouselItem>
+           <CarouselItem class="h-full flex items-center justify-center">
+            <Image
+              src={`/images/osiedle/24.webp`}
+              alt={`Zdjęcie z karuzeli nr 1`}
+              width={1000}
+              height={1000} 
+              */
+              class="w-full h-full object-cover" 
+            />
+          </CarouselItem>
+           <CarouselItem class="h-full flex items-center justify-center">
+            <Image
+              src={`/images/osiedle/36.webp`}
+              alt={`Zdjęcie z karuzeli nr 1`}
+              width={1000}
+              height={1000} 
+              */
+              class="w-full h-full object-cover" 
+            />
+          </CarouselItem>
+           <CarouselItem class="h-full flex items-center justify-center">
+            <Image
+              src={`/images/osiedle/29.webp`}
+              alt={`Zdjęcie z karuzeli nr 1`}
+              width={1000}
+              height={1000} 
+              */
+              class="w-full h-full object-cover" 
+            />
+          </CarouselItem>
+    </CarouselContent>
+  </Carousel>
+  <Separator  />
+
+   <div class="bg-neutral-900  pt-20">
+     <div class="flex justify-center gap-30">
+      <Video src="/videos/osiedle/1.mp4" controls poster="/videos/osiedle/1-poster.webp" class="w-[300px] aspect-[9/16] rounded-lg" />
+     <Video src="/videos/osiedle/2.mp4" controls poster="/videos/osiedle/2-poster.webp" class="hidden md:block w-[300px] aspect-[9/16] rounded-lg" />
+     </div>
+     <Separator class="mt-10 "/>
+   </div>
+  <Team1
+    heading="Poznaj nas"
+    description="Poznaj naszą ekipę"
+    members={members}
+  />
+<div class="bg-neutral-900">
+    
+    <Separator class="mb-10" />
+    <div class="w-full flex justify-center">
+  <span
+      class="mb-10 bg-cyan-600/50 text-white inline-block rounded-full px-4 py-1.5 text-sm font-medium"
+    >
+      Wirtualny spacer salonu
+    </span>
+</div>
+    <Tour />
+    <Separator class="mt-10" />
+  </div>
+   <div class="mt-20">
+    <Locations  />
+  </div>
+
+  </Layout
+>
+
+<script>
+  import EmblaCarousel from 'embla-carousel';
+  import Autoplay from 'embla-carousel-autoplay';
+
+  const setupCarousel = () => {
+    const carouselRoot = document.getElementById('rynek-carousel');
+    const viewportNode = carouselRoot?.querySelector('.overflow-hidden') as HTMLElement;
+
+    if (viewportNode) {
+      const autoplay = Autoplay({ 
+        delay: 3000, 
+        stopOnInteraction: false,
+        stopOnMouseEnter: true
+      });
+
+      EmblaCarousel(viewportNode, { align: 'start', loop: true }, [autoplay]);
+    }
+  };
+
+  document.addEventListener('DOMContentLoaded', setupCarousel);
+  
+  document.addEventListener('astro:page-load', setupCarousel);
+</script>
