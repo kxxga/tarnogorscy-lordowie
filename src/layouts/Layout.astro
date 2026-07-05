@@ -8,16 +8,34 @@ import IconBrandInstagram from "@tabler/icons/filled/brand-instagram.svg";
 import "@/styles/starwind.css";
 
 const title = "Tarnogórscy Lordowie Barber Shop & Academy";
-const description = "Łączy nas pasja tradycyjnego rzemiosła męskiego oraz wieloletnie doświadczenie w branży fryzjerstwa.";
-const image = "/images/osiedle/39.webp"; 
+const description =
+  "Łączy nas pasja tradycyjnego rzemiosła męskiego oraz wieloletnie doświadczenie w branży fryzjerstwa.";
+const image = "/images/osiedle/39.webp";
 
-const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://tarnogorscylordowie.pl');
-const imageURL = new URL(image, Astro.site || 'https://tarnogorscylordowie.pl');
+const canonicalURL = new URL(
+  Astro.url.pathname,
+  Astro.site || "https://tarnogorscylordowie.pl",
+);
+const imageURL = new URL(image, Astro.site || "https://tarnogorscylordowie.pl");
 ---
 
 <!doctype html>
 <html lang="pl">
   <head>
+    <!-- Google Tag Manager -->
+    <script is:inline>
+      (function (w, d, s, l, i) {
+        w[l] = w[l] || [];
+        w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+        var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l != "dataLayer" ? "&l=" + l : "";
+        j.async = true;
+        j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+        f.parentNode.insertBefore(j, f);
+      })(window, document, "script", "dataLayer", "GTM-KZXK3KLC");
+    </script>
+    <!-- End Google Tag Manager -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
@@ -27,21 +45,33 @@ const imageURL = new URL(image, Astro.site || 'https://tarnogorscylordowie.pl');
     <meta name="description" content={description} />
     <link rel="canonical" href={canonicalURL} />
 
-		<meta property="og:type" content="website" />
-		<meta property="og:url" content={canonicalURL} />
-		<meta property="og:title" content={title} />
-		<meta property="og:description" content={description} />
-		<meta property="og:image" content={imageURL} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={imageURL} />
 
-		<meta property="twitter:card" content="summary_large_image" />
-		<meta property="twitter:url" content={canonicalURL} />
-		<meta property="twitter:title" content={title} />
-		<meta property="twitter:description" content={description} />
-		<meta property="twitter:image" content={imageURL} />
+    <meta property="twitter:card" content="summary_large_image" />
+    <meta property="twitter:url" content={canonicalURL} />
+    <meta property="twitter:title" content={title} />
+    <meta property="twitter:description" content={description} />
+    <meta property="twitter:image" content={imageURL} />
 
-    <script defer src="https://stats.tarnogorscylordowie.pl/script.js" data-website-id="671e8adf-171a-4ef6-a0bf-f9f3ac696c8a"></script>
+    <script
+      defer
+      src="https://stats.tarnogorscylordowie.pl/script.js"
+      data-website-id="671e8adf-171a-4ef6-a0bf-f9f3ac696c8a"></script>
   </head>
   <body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript
+      ><iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-KZXK3KLC"
+        height="0"
+        width="0"
+        style="display:none;visibility:hidden"></iframe></noscript
+    >
+    <!-- End Google Tag Manager (noscript) -->
     <Navbar1
       siteName="Tarnogórscy Lordowie"
       links={[
