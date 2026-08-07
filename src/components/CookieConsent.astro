@@ -1,0 +1,78 @@
+---
+// Brak importów w JS
+---
+
+<!-- CSS baneru -->
+<link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/vanilla-cookieconsent@3.0.1/dist/cookieconsent.css"
+/>
+
+<!-- 1. Domyślne zgody Google Ads / GA4 -->
+<script is:inline>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+
+  gtag("consent", "default", {
+    ad_storage: "denied",
+    ad_user_data: "denied",
+    ad_personalization: "denied",
+    analytics_storage: "denied",
+  });
+</script>
+
+<!-- 2. Skrypt biblioteki załadowany bezpośrednio do przeglądarki -->
+<script
+  is:inline
+  src="https://cdn.jsdelivr.net/npm/vanilla-cookieconsent@3.0.1/dist/cookieconsent.umd.js"
+></script>
+
+<!-- 3. Inicjalizacja baneru -->
+<script is:inline>
+  window.addEventListener("DOMContentLoaded", () => {
+    // Odwołujemy się do globalnego obiektu z CDN
+    const cc = window.CookieConsent || CookieConsent;
+
+    if (cc) {
+      cc.run({
+        guiOptions: {
+          consentModal: { layout: "box", position: "bottom right" },
+        },
+        categories: {
+          necessary: { enabled: true, required: true },
+          analytics: {},
+          marketing: {},
+        },
+        language: {
+          default: "pl",
+          translations: {
+            pl: {
+              consentModal: {
+                title: "Używamy plików cookie",
+                description:
+                  "Ta strona wykorzystuje pliki cookie do celów analitycznych i reklamowych.",
+                acceptAllBtn: "Zaakceptuj wszystkie",
+                acceptNecessaryBtn: "Odrzuć opcjonalne",
+              },
+            },
+          },
+        },
+        onChange: ({ cookie }) => {
+          const hasAnalytics = cookie.categories.includes("analytics");
+          const hasMarketing = cookie.categories.includes("marketing");
+
+          if (typeof window.gtag === "function") {
+            window.gtag("consent", "update", {
+              analytics_storage: hasAnalytics ? "granted" : "denied",
+              ad_storage: hasMarketing ? "granted" : "denied",
+              ad_user_data: hasMarketing ? "granted" : "denied",
+              ad_personalization: hasMarketing ? "granted" : "denied",
+            });
+          }
+        },
+      });
+    }
+  });
+</script>

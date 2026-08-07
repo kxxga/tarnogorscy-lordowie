@@ -5,6 +5,7 @@ import IconBrandFacebook from "@tabler/icons/filled/brand-facebook.svg";
 import IconBrandInstagram from "@tabler/icons/filled/brand-instagram.svg";
 import ArrowRight from "@tabler/icons/outline/arrow-right.svg";
 import Footer1 from "../components/starwind-pro/footer-01/Footer1.astro";
+import CookieConsent from "@/components/CookieConsent.astro";
 ---
 
 <!doctype html>
@@ -16,6 +17,9 @@ import Footer1 from "../components/starwind-pro/footer-01/Footer1.astro";
     <link rel="icon" href="/logo.svg" />
     <meta name="generator" content={Astro.generator} />
     <title>Tarnogórscy Lordowie</title>
+
+    <CookieConsent />
+
     <script
       defer
       src="https://stats.tarnogorscylordowie.pl/script.js"
